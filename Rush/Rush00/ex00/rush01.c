@@ -1,41 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush02.c                                           :+:      :+:    :+:   */
+/*   rush01.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jgaine <jgaine@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/27 11:46:12 by mgrossen          #+#    #+#             */
-/*   Updated: 2026/06/27 13:22:21 by nfurst           ###   ########.fr       */
+/*   Created: 2026/06/27 15:00:00 by login             #+#    #+#             */
+/*   Updated: 2026/06/27 15:02:36 by jgaine           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
 void	ft_putchar(char c);
 
-void	special_line(int x, int i, int y)
+void	first_line(int x)
 {
 	int	l;
 
 	l = 0;
 	while (l < x)
 	{
-		if (l == 0 || l == (x - 1))
-		{
-			if (i == 0)
-			{
-				ft_putchar('A');
-			}
-			else if (i == (y - 1))
-			{
-				ft_putchar('C');
-			}
-		}
+		if (l == 0)
+			ft_putchar('/');
+		else if (l == (x - 1))
+			ft_putchar('\\');
 		else
-		{
-			ft_putchar('B');
-		}
+			ft_putchar('*');
+		l++;
+	}
+	ft_putchar('\n');
+}
+
+void	last_line(int x)
+{
+	int	l;
+
+	l = 0;
+	while (l < x)
+	{
+		if (l == 0)
+			ft_putchar('\\');
+		else if (l == (x - 1))
+			ft_putchar('/');
+		else
+			ft_putchar('*');
 		l++;
 	}
 	ft_putchar('\n');
@@ -48,10 +55,8 @@ void	normal_line(int x)
 	l = 0;
 	while (l < x)
 	{
-		if (l == 0)
-			ft_putchar('B');
-		else if (l == (x - 1))
-			ft_putchar('B');
+		if (l == 0 || l == (x - 1))
+			ft_putchar('*');
 		else
 			ft_putchar(' ');
 		l++;
@@ -64,21 +69,17 @@ void	rush(int x, int y)
 	int	i;
 
 	i = 0;
-	if (x > 0 && y > 0 && x <= 2147483647 && y <= 2147483647)
+	if (x > 0 && y > 0)
 	{
 		while (i < y)
 		{
-			if (i == 0 || i == (y - 1))
-				special_line(x, i, y);
+			if (i == 0)
+				first_line(x);
+			else if (i == (y - 1))
+				last_line(x);
 			else
-			{
 				normal_line(x);
-			}
 			i++;
 		}
-	}
-	else
-	{
-		write(1, "X or Y contains a wrong value", 29);
 	}
 }

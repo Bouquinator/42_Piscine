@@ -6,7 +6,7 @@
 /*   By: mgrossen <marvin@42.fr>                       +#+                    */
 /*                                                    +#+                     */
 /*   Created: 2026/06/27 10:18:11 by mgrossen       #+#    #+#                */
-/*   Updated: 2026/06/27 13:08:41 by mgrossen       ########   odam.nl        */
+/*   Updated: 2026/06/27 12:11:47 by mgrossen       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,5 @@ int	main(void)
 	x = 10;
 	y = 14;
 	rush(x, y);
-
 	return (0);
 }

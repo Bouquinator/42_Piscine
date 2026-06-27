@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush02.c                                           :+:      :+:    :+:   */
+/*   rush04.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/27 11:46:12 by mgrossen          #+#    #+#             */
-/*   Updated: 2026/06/27 13:22:21 by nfurst           ###   ########.fr       */
+/*   Created: 2026/06/27 13:04:11 by nfurst            #+#    #+#             */
+/*   Updated: 2026/06/27 13:20:10 by nfurst           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,37 @@
 
 void	ft_putchar(char c);
 
-void	special_line(int x, int i, int y)
+void	top_line(int x)
 {
 	int	l;
 
 	l = 0;
 	while (l < x)
 	{
-		if (l == 0 || l == (x - 1))
-		{
-			if (i == 0)
-			{
-				ft_putchar('A');
-			}
-			else if (i == (y - 1))
-			{
-				ft_putchar('C');
-			}
-		}
+		if (l == 0)
+			ft_putchar('A');
+		else if (l == (x - 1))
+			ft_putchar('C');
 		else
-		{
 			ft_putchar('B');
-		}
+		l++;
+	}
+	ft_putchar('\n');
+}
+
+void	bottom_line(int x)
+{
+	int	l;
+
+	l = 0;
+	while (l < x)
+	{
+		if (l == 0)
+			ft_putchar('C');
+		else if (l == (x - 1))
+			ft_putchar('A');
+		else
+			ft_putchar('B');
 		l++;
 	}
 	ft_putchar('\n');
@@ -68,8 +77,12 @@ void	rush(int x, int y)
 	{
 		while (i < y)
 		{
-			if (i == 0 || i == (y - 1))
-				special_line(x, i, y);
+			if (i == 0)
+				top_line(x);
+			else if (i == (y - 1))
+			{
+				bottom_line(x);
+			}
 			else
 			{
 				normal_line(x);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush02.c                                           :+:      :+:    :+:   */
+/*   rush00.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/27 11:46:12 by mgrossen          #+#    #+#             */
-/*   Updated: 2026/06/27 13:22:21 by nfurst           ###   ########.fr       */
+/*   Created: 2026/06/27 12:37:16 by nfurst            #+#    #+#             */
+/*   Updated: 2026/06/27 12:56:51 by nfurst           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putchar(char c);
 
-void	special_line(int x, int i, int y)
+void	special_line(int x)
 {
 	int	l;
 
@@ -22,20 +22,9 @@ void	special_line(int x, int i, int y)
 	while (l < x)
 	{
 		if (l == 0 || l == (x - 1))
-		{
-			if (i == 0)
-			{
-				ft_putchar('A');
-			}
-			else if (i == (y - 1))
-			{
-				ft_putchar('C');
-			}
-		}
+			ft_putchar('o');
 		else
-		{
-			ft_putchar('B');
-		}
+			ft_putchar('-');
 		l++;
 	}
 	ft_putchar('\n');
@@ -48,10 +37,8 @@ void	normal_line(int x)
 	l = 0;
 	while (l < x)
 	{
-		if (l == 0)
-			ft_putchar('B');
-		else if (l == (x - 1))
-			ft_putchar('B');
+		if (l == 0 || l == (x - 1))
+			ft_putchar('|');
 		else
 			ft_putchar(' ');
 		l++;
@@ -69,7 +56,7 @@ void	rush(int x, int y)
 		while (i < y)
 		{
 			if (i == 0 || i == (y - 1))
-				special_line(x, i, y);
+				special_line(x);
 			else
 			{
 				normal_line(x);
