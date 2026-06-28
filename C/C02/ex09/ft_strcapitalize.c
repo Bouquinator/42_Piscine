@@ -47,29 +47,6 @@ char	*ft_strcapitalize(char *str)
 	return(str);
 }
 
-/*
-char	*ft_strcapitalize(char *str)
-{
-	int	i;
-
-	i = 1;
-	if (str[0] >= 'a' && str[0] <= 'z')
-		str[0] = str[0] + ('A' - 'a');
-	while (str[i] != 0)
-	{
-		if (ft_is_it(str[i] == 3))
-		{
-			if (ft_is_it(str[(i - 1)] == 1 && str[i] >= 'a' && str[i] <= 'z'))
-				str[i] = str[i] + ('A' - 'a');
-			else 
-				str[i] = str[i] + ('a' - 'A');
-		}
-		i++;
-	}
-	return (str);
-}
-*/
-
 #include <stdio.h>
 #include <string.h>
 
