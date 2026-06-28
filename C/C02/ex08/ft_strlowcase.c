@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                         ::::::::           */
-/*   ft_str_is_uppercase.c                               :+:    :+:           */
+/*   ft_strlowcase.c                                     :+:    :+:           */
 /*                                                      +:+                   */
 /*   By: mgrossen <marvin@42.fr>                       +#+                    */
 /*                                                    +#+                     */
-/*   Created: 2026/06/27 17:14:24 by mgrossen       #+#    #+#                */
-/*   Updated: 2026/06/27 22:51:45 by mgrossen       ########   odam.nl        */
+/*   Created: 2026/06/27 23:19:08 by mgrossen       #+#    #+#                */
+/*   Updated: 2026/06/27 23:34:12 by mgrossen       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_uppercase(char *str)
+char	*ft_strlowcase(char *str)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (str[i] != 0)
 	{
 		if (str[i] >= 'A' && str[i] <= 'Z')
-			i++;
-		else
-			return (0);
+			str[i] = str[i] + ('a' - 'A');
+		i++;
 	}
-	return(1);
+	return (str);
 }
 
 #include <stdio.h>
+#include <string.h>
 
 int	main(void)
 {
-	printf("%d",ft_str_is_uppercase("UUUu"));
-	return (0);
+	char	string[] = "test STRING 12";
+
+	printf("%s", ft_strlowcase(string));
+	return 0;
 }
