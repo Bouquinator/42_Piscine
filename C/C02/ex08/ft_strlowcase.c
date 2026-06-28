@@ -6,13 +6,13 @@
 /*   By: mgrossen <marvin@42.fr>                       +#+                    */
 /*                                                    +#+                     */
 /*   Created: 2026/06/27 23:19:08 by mgrossen       #+#    #+#                */
-/*   Updated: 2026/06/27 23:34:12 by mgrossen       ########   odam.nl        */
+/*   Updated: 2026/06/28 13:09:55 by mgrossen       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strlowcase(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] != 0)
@@ -23,7 +23,7 @@ char	*ft_strlowcase(char *str)
 	}
 	return (str);
 }
-
+/*
 #include <stdio.h>
 #include <string.h>
 
@@ -33,4 +33,4 @@ int	main(void)
 
 	printf("%s", ft_strlowcase(string));
 	return 0;
-}
+} */

@@ -1,35 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                         ::::::::           */
-/*   ft_strupcase.c                                      :+:    :+:           */
+/*   ft_strcmp.c                                         :+:    :+:           */
 /*                                                      +:+                   */
 /*   By: mgrossen <marvin@42.fr>                       +#+                    */
 /*                                                    +#+                     */
-/*   Created: 2026/06/27 23:03:41 by mgrossen       #+#    #+#                */
-/*   Updated: 2026/06/28 13:11:51 by mgrossen       ########   odam.nl        */
+/*   Created: 2026/06/28 13:29:20 by mgrossen       #+#    #+#                */
+/*   Updated: 2026/06/28 15:11:46 by mgrossen       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strupcase(char *str)
+int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
+	char	a;
+	int	value;
 
-	i = 0;
-	while (str[i] != 0)
+	i=0;
+	while(s1[i] == s2[i])
 	{
-		if (str[i] >= 'a' && str[i] <= 'z')
-			str[i] = str[i] + ('A' - 'a');
 		i++;
 	}
-	return (str);
+	if (s1[(i + 1)] > s2[(i + 1)])
+	{
+		a = s1[(i + 1)];
+		return (a);
+	}
+	else if (s1[(i + 1)] < s2[(i + 1)])
+		return ((s1[i + 1]) * (-1));
+	else
+		return (0);
 }
-/*
 #include <stdio.h>
 #include <string.h>
 
 int	main(void)
 {
-	char	uwu[] = "n feiagbuiwabyiteSSSDAFGG  15628i9786756543i";
+	char	s1[] = "testa";
+	char	s2[] = "test";
 
-	printf("%s", ft_strupcase(uwu));
-} */
+	printf("%d",ft_strcmp(s1, s2));
+}

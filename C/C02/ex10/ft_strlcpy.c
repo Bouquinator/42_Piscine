@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                         ::::::::           */
-/*   ft_strupcase.c                                      :+:    :+:           */
+/*   ft_strlcpy.c                                        :+:    :+:           */
 /*                                                      +:+                   */
 /*   By: mgrossen <marvin@42.fr>                       +#+                    */
 /*                                                    +#+                     */
-/*   Created: 2026/06/27 23:03:41 by mgrossen       #+#    #+#                */
-/*   Updated: 2026/06/28 13:11:51 by mgrossen       ########   odam.nl        */
+/*   Created: 2026/06/28 12:26:21 by mgrossen       #+#    #+#                */
+/*   Updated: 2026/06/28 13:11:16 by mgrossen       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strupcase(char *str)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
-	while (str[i] != 0)
+	while (src[i] != 0)
 	{
-		if (str[i] >= 'a' && str[i] <= 'z')
-			str[i] = str[i] + ('A' - 'a');
+		if (i == (size - 1))
+			dest[i] = '\0';
+		else if (i < (size - 1))
+			dest[i] = src[i];
 		i++;
 	}
-	return (str);
+	return (i);
 }
 /*
 #include <stdio.h>
@@ -29,7 +31,14 @@ char	*ft_strupcase(char *str)
 
 int	main(void)
 {
-	char	uwu[] = "n feiagbuiwabyiteSSSDAFGG  15628i9786756543i";
+	char	dest[] = "string de destination";
+	char	src[] = "Maxime est le GOAT";
+	unsigned int	size = 4;
+	int	a;
 
-	printf("%s", ft_strupcase(uwu));
+	a = ft_strlcpy(dest, src, size);
+
+	printf("%d\n", a);
+	printf("%s\n", dest);
+	printf("%s", src);
 } */

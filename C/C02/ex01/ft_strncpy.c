@@ -6,20 +6,20 @@
 /*   By: mgrossen <marvin@42.fr>                       +#+                    */
 /*                                                    +#+                     */
 /*   Created: 2026/06/25 19:17:49 by mgrossen       #+#    #+#                */
-/*   Updated: 2026/06/27 16:44:57 by mgrossen       ########   odam.nl        */
+/*   Updated: 2026/06/28 13:05:50 by mgrossen       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-#include <unistd.h>
+//#include <stdio.h>
+//#include <string.h>
+//#include <unistd.h>
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
 	unsigned int	i;
 
 	i = 0;
-	while (src[i] != '\0' && i <= n)
+	while (src[i] != '\0' && i < n)
 	{
 		dest[i] = src[i];
 		i++;

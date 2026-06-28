@@ -6,11 +6,11 @@
 /*   By: mgrossen <marvin@42.fr>                       +#+                    */
 /*                                                    +#+                     */
 /*   Created: 2026/06/25 22:10:35 by mgrossen       #+#    #+#                */
-/*   Updated: 2026/06/27 17:03:16 by mgrossen       ########   odam.nl        */
+/*   Updated: 2026/06/28 12:52:02 by mgrossen       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+//#include <stdio.h>
 
 int	ft_str_is_alpha(char *str)
 {
