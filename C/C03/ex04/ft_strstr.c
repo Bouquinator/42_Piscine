@@ -6,7 +6,7 @@
 /*   By: mgrossen <marvin@42.fr>                       +#+                    */
 /*                                                    +#+                     */
 /*   Created: 2026/06/28 23:19:45 by mgrossen       #+#    #+#                */
-/*   Updated: 2026/06/29 13:41:31 by mgrossen       ########   odam.nl        */
+/*   Updated: 2026/06/29 16:44:32 by mgrossen       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ char	*ft_strstr(char *str, char *to_find)
 	int	i;
 	int	length;
 
+	if (to_find[0] == '\0')
+		return (to_find);
 	length = ft_get_length(to_find);
 	i = 0;
 	while (str[i])
@@ -57,8 +59,8 @@ char	*ft_strstr(char *str, char *to_find)
 int	main(void)
 {
 	char	str[] = "Ceci est un test de strstr find";
-	char	to_find[] = "test";
+	char	to_find[] = "";
 	
-	printf("%s\n", strstr(str, to_find));
+	//printf("%s\n", strstr(str, to_find));
 	printf("%s", ft_strstr(str, to_find));
 } */

@@ -6,7 +6,7 @@
 /*   By: mgrossen <marvin@42.fr>                       +#+                    */
 /*                                                    +#+                     */
 /*   Created: 2026/06/28 19:16:22 by mgrossen       #+#    #+#                */
-/*   Updated: 2026/06/29 13:38:34 by mgrossen       ########   odam.nl        */
+/*   Updated: 2026/06/29 16:45:24 by mgrossen       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 
 	i = 0;
 	x = 0;
-	while (dest[i] != 0)
+	while (dest[i])
 		i++;
-	while (src[x] != 0 && x <= nb)
+	while (src[x] && x < nb)
 	{
 		dest[i] = src[x];
 		x++;
@@ -41,7 +41,7 @@ int	main(void)
 	char dest2[50] = "world";
 	unsigned int n;
 
-	n = 5;
+	n = 0;
 
 	strncat(dest2, src2, n);
 	ft_strncat(dest, src, n);
