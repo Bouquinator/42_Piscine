@@ -6,7 +6,7 @@
 /*   By: mgrossen <marvin@42.fr>                       +#+                    */
 /*                                                    +#+                     */
 /*   Created: 2026/06/28 19:16:22 by mgrossen       #+#    #+#                */
-/*   Updated: 2026/06/29 16:45:24 by mgrossen       ########   odam.nl        */
+/*   Updated: 2026/06/29 19:33:22 by mgrossen       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,27 +25,44 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 		x++;
 		i++;
 	}
-	if (x < nb)
-		dest[(i)] = 0;
+	dest[(i)] = 0;
 	return (dest);
 }
-/*
+
 #include <stdio.h>
 #include <string.h>
 
+void	ft_mega_print(char *input)
+{
+	int	i;
+
+	i = 0;
+	while(input[i])
+	{
+		if (input[i] < 32 || input[i] == 127)
+			printf("\\%d\\", input[i]);
+		else
+			printf("%c", input[i]);
+		i++;
+	}
+}
+
 int	main(void)
 {
-	char src[] = "test";
-	char dest[50] = "world";
-	char src2[] = "test";
-	char dest2[50] = "world";
+	char src[] = "r\n";
+	char dest[50] = "wor\vld";
+	char src2[] = "r\n";
+	char dest2[50] = "wor\vld";
 	unsigned int n;
 
-	n = 0;
+	n = 4;
 
 	strncat(dest2, src2, n);
 	ft_strncat(dest, src, n);
 
-	printf("ma fonction --> %s\n", dest);
-	printf("fonction officielle --> %s\n", dest2);
-} */
+	printf("ma fonction\n");
+	ft_mega_print(dest);
+	printf("\nfonction officielle\n");
+	ft_mega_print(dest2);
+	printf("\nend\n");
+}

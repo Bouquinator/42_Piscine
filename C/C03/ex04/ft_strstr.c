@@ -6,7 +6,7 @@
 /*   By: mgrossen <marvin@42.fr>                       +#+                    */
 /*                                                    +#+                     */
 /*   Created: 2026/06/28 23:19:45 by mgrossen       #+#    #+#                */
-/*   Updated: 2026/06/29 16:44:32 by mgrossen       ########   odam.nl        */
+/*   Updated: 2026/06/29 20:05:09 by mgrossen       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,32 @@ char	*ft_strstr(char *str, char *to_find)
 	}
 	return (0);
 }
-/*
+
 #include <stdio.h>
 #include <string.h>
 
+void	ft_mega_print(char *input, char *description)
+{
+	int	i;
+
+	i = 0;
+	printf("Desc : %s\n\n", description);
+	while(input[i] != 0)
+	{
+		if (input[i] < 32 || input[i] == 127)
+			printf("\\%d\\", input[i]);
+		else
+			printf("%c", input[i]);
+		i++;
+	}
+	printf("\n\nEnd -----\n");
+}
+
 int	main(void)
 {
-	char	str[] = "Ceci est un test de strstr find";
-	char	to_find[] = "";
+	char	str[] = "Ceci \test un test de strstr find";
+	char	to_find[] = "chat";
 	
-	//printf("%s\n", strstr(str, to_find));
-	printf("%s", ft_strstr(str, to_find));
-} */
+	ft_mega_print(strstr(str, to_find), "Vrai");
+	ft_mega_print(ft_strstr(str, to_find), "Faux");
+}
