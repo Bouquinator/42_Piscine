@@ -6,14 +6,14 @@
 /*   By: mgrossen <marvin@42.fr>                       +#+                    */
 /*                                                    +#+                     */
 /*   Created: 2026/06/28 19:16:22 by mgrossen       #+#    #+#                */
-/*   Updated: 2026/06/28 20:57:34 by mgrossen       ########   odam.nl        */
+/*   Updated: 2026/06/29 13:38:34 by mgrossen       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	int	i;
-	int	x;
+	unsigned int	i;
+	unsigned int	x;
 
 	i = 0;
 	x = 0;
@@ -27,9 +27,9 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 	}
 	if (x < nb)
 		dest[(i)] = 0;
-	return(dest);
+	return (dest);
 }
-
+/*
 #include <stdio.h>
 #include <string.h>
 
@@ -48,4 +48,4 @@ int	main(void)
 
 	printf("ma fonction --> %s\n", dest);
 	printf("fonction officielle --> %s\n", dest2);
-}
+} */

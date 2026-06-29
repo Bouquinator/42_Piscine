@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                         ::::::::           */
-/*   ft_strncmp.c                                        :+:    :+:           */
+/*   ft_strstr.c                                         :+:    :+:           */
 /*                                                      +:+                   */
 /*   By: mgrossen <marvin@42.fr>                       +#+                    */
 /*                                                    +#+                     */
-/*   Created: 2026/06/28 17:49:19 by mgrossen       #+#    #+#                */
-/*   Updated: 2026/06/29 13:35:44 by mgrossen       ########   odam.nl        */
+/*   Created: 2026/06/28 23:19:45 by mgrossen       #+#    #+#                */
+/*   Updated: 2026/06/29 13:41:31 by mgrossen       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,44 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 		return (s1[i] - s2[i]);
 	return (0);
 }
-/*
-#include <string.h>
-#include <stdio.h>
 
-int     main()
+int	ft_get_length(char *str)
 {
-        char uwu[] = "test";
-        char mm[] = "test";
+	int	i;
 
-        printf("%d %d", strncmp(uwu, mm, 4), ft_strncmp(uwu, mm, 4));
+	i = 0;
+	while (str[i] != 0)
+		i++;
+	return (i);
+}
 
+char	*ft_strstr(char *str, char *to_find)
+{
+	int	i;
+	int	length;
+
+	length = ft_get_length(to_find);
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == to_find[0])
+		{
+			if (ft_strncmp(&str[i], to_find, length) == 0)
+				return (&str[i]);
+		}
+		i++;
+	}
+	return (0);
+}
+/*
+#include <stdio.h>
+#include <string.h>
+
+int	main(void)
+{
+	char	str[] = "Ceci est un test de strstr find";
+	char	to_find[] = "test";
+	
+	printf("%s\n", strstr(str, to_find));
+	printf("%s", ft_strstr(str, to_find));
 } */

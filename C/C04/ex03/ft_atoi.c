@@ -6,11 +6,11 @@
 /*   By: mgrossen <marvin@42.fr>                       +#+                    */
 /*                                                    +#+                     */
 /*   Created: 2026/06/26 12:05:21 by mgrossen       #+#    #+#                */
-/*   Updated: 2026/06/27 17:44:23 by mgrossen       ########   odam.nl        */
+/*   Updated: 2026/06/29 03:00:27 by mgrossen       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
+#include <stdio.h>
 
 int	issspace(char test)
 {
@@ -83,8 +83,8 @@ int	ft_atoi(char *str)
 		numb = numb * (-1);
 	return(numb);
 }
-/*
+
 int	main(void)
 {
-	printf("%d", ft_atoi(" --+--+1234567"));
-} */
+	printf("%d", ft_atoi(" --+---+12345a67"));
+}

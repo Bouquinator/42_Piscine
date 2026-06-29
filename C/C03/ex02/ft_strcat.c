@@ -6,7 +6,7 @@
 /*   By: mgrossen <marvin@42.fr>                       +#+                    */
 /*                                                    +#+                     */
 /*   Created: 2026/06/28 18:34:14 by mgrossen       #+#    #+#                */
-/*   Updated: 2026/06/28 19:31:01 by mgrossen       ########   odam.nl        */
+/*   Updated: 2026/06/29 13:36:58 by mgrossen       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ char	*ft_strcat(char *dest, char *src)
 		x++;
 	}
 	dest[(i + x)] = 0;
-	return(dest);
+	return (dest);
 }
-
+/*
 #include <stdio.h>
 #include <string.h>
 
@@ -42,4 +42,4 @@ int	main(void)
 
 	printf("%s\n", ft_strcat(dest, src));
 	printf("%s", dest2);
-}
+} */
