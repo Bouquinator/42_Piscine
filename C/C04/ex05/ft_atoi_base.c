@@ -1,109 +1,95 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                         ::::::::           */
-/*   ft_atoi_base.c                                      :+:    :+:           */
+/*   natoi_base.c                                        :+:    :+:           */
 /*                                                      +:+                   */
 /*   By: mgrossen <marvin@42.fr>                       +#+                    */
 /*                                                    +#+                     */
-/*   Created: 2026/06/29 22:13:15 by mgrossen       #+#    #+#                */
-/*   Updated: 2026/06/30 09:37:16 by mgrossen       ########   odam.nl        */
+/*   Created: 2026/06/30 14:30:11 by mgrossen       #+#    #+#                */
+/*   Updated: 2026/06/30 20:09:48 by mgrossen       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_get_l(char *input)
+int	ft_is_base(char input, char *base)
+{
+	int	i;
+
+	i = 0;
+	while(base[i])
+	{
+		if(input == base[i])
+			return (i);
+		i++;
+	}
+	return (-1);
+}
+
+int	ft_getl(char *input)
 {
 	int	i;
 
 	i = 0;
 	while(input[i])
-		i++
+		i++;
 	return (i);
 }
 
-int	ft_charcheck(char input, char *base)
-{
-	int	i;
-
-	i = 0;
-	if (input == ' ' || input == '\f' || input == '\n')
-		return (1);
-	if (input == '\r' || input == '\t' || input == '\v')
-		return (1);
-	while(base[i])
-	{
-		if (base[i] == input)
-			return (2);
-		i++;
-	}
-	else
-		return(0);
-}
-
-int	ft_signs(char *str, int option)
-{
-	int	i;
-	int	m;
-	int	s;
-
-	i = 0;
-	m = 0;
-	s = 0;
-	while(str[i])
-	{
-		if (str[i] == '-')
-		{
-			m++;
-			s++;
-		}
-		else if (str[i] == '+')
-			s++;
-		i++;
-	}
-	if (option == 1)
-		return (m);
-	else
-		return (s);
-}
-
-ft_base(char *input, char *base)
+int	ft_base_check(char *base)
 {
 	int	i;
 	int	j;
-
-}
-
-int ft_atoi_base(char *str char base)
-{
-	int	i;
-	int	x;
-	int	min;
-	int	number;
-
+	
 	i = 0;
-	x = 0;
-	while(str[i])
+	j = 0;
+	if (ft_getl(base) < 2)
+		return (0);
+	while(base[i])
 	{
-		if (ft_charcheck(i, 0) == 1)
-			x++;
+		j = i + 1;
+		while(base[j])
+		{
+			if (base[j] == '+' || base[j] == '-' || base[j] == base[i])
+				return (0);
+			j++;
+			
+		}
 		i++;
 	}
-	str = &str[x];
-	i = 0;
-	min = ft_signs(str, 1);
-	str = &str[ft_signs(str, 2)];
-	number = 0;
-	while(ft_charcheck(str[i], base) == 2)
-		i++;
-	str[i + 1] = '\0'
-	number = ft_base(str, base);
-	if (min % 2 != 0)
-		number = number * (-1);
-	return (number);	
+	return (1);
 }
 
-#include <stdio.h>
+int	ft_atoi_base(char *str, char *base)
+{
+	int	i;
+	int	signe;
+	int	number;
+
+	
+	if (ft_base_check(base) == 0)
+		return (0);
+	signe = 1;
+	i = 0;
+	number = 0;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	while (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			signe *= -1;
+		i++;
+	}
+	while (ft_is_base(str[i], base) != -1)
+	{
+		number = (number * ft_getl(base)) + ft_is_base(str[i], base);
+		i++;
+	}
+	number *= signe;
+	return (number);
+}
+
+#import <stdio.h>
 
 int	main(void)
 {
-	printf("%d", ft_atoi("   --+---+12345a67"));
+	printf("%d", ft_atoi_base("  +-3Cj", "0123456789ABCDEF"));
 }
