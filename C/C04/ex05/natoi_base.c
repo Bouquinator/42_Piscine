@@ -18,27 +18,10 @@ int	ft_is_base(char input, char *base)
 	while(base[i])
 	{
 		if(input == base[i])
-			return (1);
+			return (i);
 		i++;
 	}
-	return (0);
-}
-
-void	ft_renv(char *tab, int size)
-{
-	int	i;
-	int	l;
-	int	a;
-
-	i = 0;
-	while (i <= ((size - 1) / 2) && size > 0)
-	{
-		l = (size - 1) - i;
-		a = tab[l];
-		tab[l] = tab[i];
-		tab[i] = a;
-		i++;
-	}
+	return (-1);
 }
 
 int	ft_getl(char *input)
@@ -51,32 +34,28 @@ int	ft_getl(char *input)
 	return (i);
 }
 
-int	ft_base_transfo(char *input, char *base)
+int	ft_base_check(char *base)
 {
-	int	l;
 	int	i;
-	int	result;
 	int	j;
 	
-	result = 0;
-	l = ft_getl(base);
 	i = 0;
 	j = 0;
-	if (base[0] == 0 || ft_getl(base) < 2)
+	if (ft_getl(base) < 2)
 		return (0);
-	while(input[i])
+	while(base[i])
 	{
 		j = 0;
-		while(base[j] != input[i])
+		while(base[j])
 		{
-			if (base[j] == '+' || base[j] == '-')
+			if (base[j] == '+' || base[j] == '-' || base[j] == base[i])
 				return (0);
 			j++;
+			
 		}
-		result *= (l + j);
-		i++;	
+		i++;
 	}
-	return(result);
+	return (1);
 }
 
 int	ft_atoi_base(char *str, char *base)
@@ -85,6 +64,9 @@ int	ft_atoi_base(char *str, char *base)
 	int	signe;
 	int	number;
 
+	
+	if )ft_base_check(base) == 0)
+		return (0);
 	signe = 1;
 	i = 0;
 	number = 0;
@@ -96,14 +78,11 @@ int	ft_atoi_base(char *str, char *base)
 			signe *= -1;
 		i++;
 	}
-	str = &str[i];
-	i = 0;
-	while (ft_is_base(str[i], base) == 1)
+	while (ft_is_base(str[i], base) != -1)
+	{
+		number = (number * ft_getl(base)) + ft_is_base(str[i], base);
 		i++;
-	ft_renv(str, ft_getl(str));
-	str = &str[ft_getl(str) - i];
-	ft_renv(str, ft_getl(str));
-	number = ft_base_transfo(str, base);
+	}
 	number *= signe;
 	return (number);
 }
