@@ -6,16 +6,35 @@
 /*   By: mgrossen <marvin@42.fr>                       +#+                    */
 /*                                                    +#+                     */
 /*   Created: 2026/06/29 22:13:15 by mgrossen       #+#    #+#                */
-/*   Updated: 2026/06/29 22:55:00 by mgrossen       ########   odam.nl        */
+/*   Updated: 2026/06/30 09:37:16 by mgrossen       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isspace(char	input)
+int	ft_get_l(char *input)
 {
+	int	i;
+
+	i = 0;
+	while(input[i])
+		i++
+	return (i);
+}
+
+int	ft_charcheck(char input, char *base)
+{
+	int	i;
+
+	i = 0;
 	if (input == ' ' || input == '\f' || input == '\n')
 		return (1);
 	if (input == '\r' || input == '\t' || input == '\v')
 		return (1);
+	while(base[i])
+	{
+		if (base[i] == input)
+			return (2);
+		i++;
+	}
 	else
 		return(0);
 }
@@ -46,7 +65,14 @@ int	ft_signs(char *str, int option)
 		return (s);
 }
 
-int ft_atoi(char *str)
+ft_base(char *input, char *base)
+{
+	int	i;
+	int	j;
+
+}
+
+int ft_atoi_base(char *str char base)
 {
 	int	i;
 	int	x;
@@ -57,7 +83,7 @@ int ft_atoi(char *str)
 	x = 0;
 	while(str[i])
 	{
-		if (ft_isspace(i) == 1)
+		if (ft_charcheck(i, 0) == 1)
 			x++;
 		i++;
 	}
@@ -66,13 +92,10 @@ int ft_atoi(char *str)
 	min = ft_signs(str, 1);
 	str = &str[ft_signs(str, 2)];
 	number = 0;
-	while(str[i] >= '0' && str[i] <= '9')
-	{
-		number = number + (str[i] - '0');
-		if (str[i + 1] >= '0' && str[i + 1] <= '9')
-			number = number * 10;
+	while(ft_charcheck(str[i], base) == 2)
 		i++;
-	}
+	str[i + 1] = '\0'
+	number = ft_base(str, base);
 	if (min % 2 != 0)
 		number = number * (-1);
 	return (number);	
