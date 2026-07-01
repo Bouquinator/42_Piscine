@@ -6,7 +6,7 @@
 /*   By: mgrossen <marvin@42.fr>                       +#+                    */
 /*                                                    +#+                     */
 /*   Created: 2026/06/30 14:30:11 by mgrossen       #+#    #+#                */
-/*   Updated: 2026/07/01 12:47:21 by mgrossen       ########   odam.nl        */
+/*   Updated: 2026/07/01 17:17:01 by mgrossen       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,12 @@ int	ft_base_check(char *base)
 		j = i + 1;
 		while (base[j])
 		{
-			if (base[0] == '+' || base[0] == '-')
+			if (base[0] == '+' || base[0] == '-'
+				|| base[0] == ' ' || (base[0] >= 9 && base[0] <= 13))
 				return (0);
-			if (base[j] == '+' || base[j] == '-' || base[j] == base[i])
+			if (base[j] == '+' || base[j] == '-'
+				|| base[j] == base[i] || base [j] == ' '
+				|| (base[j] >= 9 && base[j] <= 13))
 				return (0);
 			j++;
 		}
@@ -91,5 +94,6 @@ int	ft_atoi_base(char *str, char *base)
 
 int	main(void)
 {
-	printf("%d", ft_atoi_base("-111", "+0123456789"));
+	printf("%d", ft_atoi_base("-111", "01"));
+	printf("\n%d", ft_atoi_base("-111", "01"));
 } */
