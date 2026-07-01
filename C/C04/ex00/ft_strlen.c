@@ -6,7 +6,7 @@
 /*   By: mgrossen <marvin@42.fr>                       +#+                    */
 /*                                                    +#+                     */
 /*   Created: 2026/06/29 03:04:31 by mgrossen       #+#    #+#                */
-/*   Updated: 2026/06/29 03:14:10 by mgrossen       ########   odam.nl        */
+/*   Updated: 2026/06/30 20:15:59 by mgrossen       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@ int	ft_strlen(char *str)
 	int	i;
 
 	i = 0;
-	while(str[i] != 0)
+	while (str[i] != 0)
 		i++;
 	return (i);
 }
