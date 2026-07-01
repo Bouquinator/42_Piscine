@@ -6,7 +6,7 @@
 /*   By: mgrossen <marvin@42.fr>                       +#+                    */
 /*                                                    +#+                     */
 /*   Created: 2026/06/29 03:31:31 by mgrossen       #+#    #+#                */
-/*   Updated: 2026/06/30 20:16:53 by mgrossen       ########   odam.nl        */
+/*   Updated: 2026/07/01 11:37:51 by mgrossen       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	ft_putstr(char *str)
 		i++;
 	write(1, str, i);
 }
-
+/*
 int	main(void)
 {
 	ft_putstr("test");
-}
+} */

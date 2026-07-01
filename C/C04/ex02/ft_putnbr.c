@@ -6,7 +6,7 @@
 /*   By: mgrossen <marvin@42.fr>                       +#+                    */
 /*                                                    +#+                     */
 /*   Created: 2026/06/29 03:37:28 by mgrossen       #+#    #+#                */
-/*   Updated: 2026/07/01 00:31:06 by mgrossen       ########   odam.nl        */
+/*   Updated: 2026/07/01 12:08:03 by mgrossen       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_putnbr(int nb)
 {
 	char	print;
-	
+
 	if (nb == -2147483648)
 		write(1, "-2147483648", 11);
 	else if (nb < 0)
@@ -36,10 +36,10 @@ void	ft_putnbr(int nb)
 		write(1, &print, 1);
 	}
 }
-
+/*
 #include <limits.h>
 
 int	main(void)
 {
 	ft_putnbr(INT_MIN);
-}
+} */

@@ -6,13 +6,11 @@
 /*   By: mgrossen <marvin@42.fr>                       +#+                    */
 /*                                                    +#+                     */
 /*   Created: 2026/06/29 16:58:04 by mgrossen       #+#    #+#                */
-/*   Updated: 2026/07/01 12:46:33 by mgrossen       ########   odam.nl        */
+/*   Updated: 2026/07/01 12:11:36 by mgrossen       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-
-void	ft_putnbr_base(int nbr, char *base);
 
 int	ft_get_l(char *input)
 {
@@ -50,28 +48,12 @@ int	ft_base_check(char *base)
 	return (1);
 }
 
-void	ft_calculus_write(int nbr, char *base)
-{
-	char	print;
-	int		base_nbr;
-	int		rest;
-
-	base_nbr = 0;
-	rest = 0;
-	base_nbr = ft_get_l(base);
-	if (nbr != 0)
-	{
-		rest = nbr % base_nbr;
-		nbr = (nbr) / base_nbr;
-		ft_putnbr_base(nbr, base);
-		print = base[(rest)];
-		write(1, &print, 1);
-	}
-}
-
 void	ft_putnbr_base(int nbr, char *base)
 {
 	static int	depth = 0;
+	char		print;
+	int			base_nbr;
+	int			rest;
 	int			sign;
 
 	sign = 1;
@@ -81,17 +63,26 @@ void	ft_putnbr_base(int nbr, char *base)
 		nbr *= -1;
 		write(1, "-", 1);
 	}
+	print = 'a';
 	if (ft_base_check(base) == 1)
 	{
 		if (depth == 0 && nbr == 0)
 			write(1, &base[0], 1);
 		depth++;
-		ft_calculus_write(nbr, base);
+		base_nbr = ft_get_l(base);
+		if (nbr != 0)
+		{
+			rest = nbr % base_nbr;
+			nbr = (nbr) / base_nbr;
+			ft_putnbr_base(nbr, base);
+			print = base[(rest)];
+			write(1, &print, 1);
+		}
 	}
 }
-
+/*
 int	main(void)
 {
 	ft_putnbr_base(-5, "poneyvif");
 	return (0);
-}
+} */
