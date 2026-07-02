@@ -6,7 +6,7 @@
 /*   By: mgrossen <marvin@42.fr>                       +#+                    */
 /*                                                    +#+                     */
 /*   Created: 2026/06/30 14:30:11 by mgrossen       #+#    #+#                */
-/*   Updated: 2026/07/01 17:17:01 by mgrossen       ########   odam.nl        */
+/*   Updated: 2026/07/02 00:46:59 by mgrossen       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,11 +89,11 @@ int	ft_atoi_base(char *str, char *base)
 	number *= signe;
 	return (number);
 }
-/*
+
 #include  <stdio.h>
 
 int	main(void)
 {
 	printf("%d", ft_atoi_base("-111", "01"));
 	printf("\n%d", ft_atoi_base("-111", "01"));
-} */
+

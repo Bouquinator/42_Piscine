@@ -6,7 +6,7 @@
 /*   By: mgrossen <marvin@42.fr>                       +#+                    */
 /*                                                    +#+                     */
 /*   Created: 2026/06/29 16:58:04 by mgrossen       #+#    #+#                */
-/*   Updated: 2026/07/01 17:18:59 by mgrossen       ########   odam.nl        */
+/*   Updated: 2026/07/02 01:46:33 by mgrossen       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,14 +72,11 @@ void	ft_calculus_write(long nbr, char *base)
 void	ft_putnbr_base(int nbr, char *base)
 {
 	static int	depth = 0;
-	int			sign;
 	long		lnbr;
 
-	sign = 1;
 	lnbr = nbr;
 	if (lnbr < 0 && depth == 0)
 	{
-		sign *= -1;
 		lnbr *= -1;
 		write(1, "-", 1);
 	}
@@ -92,11 +89,10 @@ void	ft_putnbr_base(int nbr, char *base)
 	}
 	depth = 0;
 }
-/*
+
 #include <limits.h>
 int	main(void)
 {
-	ft_putnbr_base(INT_MIN, "0123456789ABCDEF");
-	write(1, "\n", 1);
-	ft_putnbr_base(-20, "01");
-} */
+	ft_putnbr_base(0, "0123456789ABCDEF");
+}
+
